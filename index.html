@@ -20,13 +20,13 @@
       referrerpolicy="no-referrer"
     />
 
-    <link rel="stylesheet" href="base.css" />
-    <link rel="stylesheet" href="nav.css" />
-    <link rel="stylesheet" href="hero.css" />
-    <link rel="stylesheet" href="skills.css" />
-    <link rel="stylesheet" href="contact.css" />
-    <link rel="stylesheet" href="animations.css" />
-    <link rel="stylesheet" href="responsive.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/hero.css" />
+    <link rel="stylesheet" href="css/skills.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
 
     <title>Portfolio</title>
   </head>
@@ -78,7 +78,7 @@
         </div>
 
         <div class="headshot">
-          <img src="img.jpg" alt="Prajwal Bhattarai headshot" />
+          <img src="images/img.jpg" alt="Prajwal Bhattarai headshot" />
         </div>
       </section>
 
@@ -91,27 +91,27 @@
 
         <div class="cells">
           <div class="cell">
-            <img src="html-logo.webp" alt="html logo" />
+            <img src="images/html-logo.webp" alt="html logo" />
             <span>HTML</span>
           </div>
 
           <div class="cell">
-            <img src="css-logo.webp" alt="css logo" />
+            <img src="images/css-logo.webp" alt="css logo" />
             <span>CSS</span>
           </div>
 
           <div class="cell">
-            <img src="javascript-logo.webp" alt="javascript logo" />
+            <img src="images/javascript-logo.webp" alt="javascript logo" />
             <span>JavaScript</span>
           </div>
 
           <div class="cell">
-            <img src="python-logo.webp" alt="node logo" />
+            <img src="images/python-logo.webp" alt="node logo" />
             <span>Python</span>
           </div>
 
           <div class="cell">
-            <img src="react-logo.webp" alt="react logo" />
+            <img src="images/react-logo.webp" alt="react logo" />
             <span>React.js</span>
           </div>
         </div>
@@ -119,22 +119,28 @@
 
       <section id="contact" class="contact-section">
         <h2>Contact</h2>
-
+      
         <div class="group">
-          <form>
+          <form id="contact-form" method="POST">
             <label for="name">Name</label>
-            <input type="text" id="name" />
-
+            <input type="text" id="name" name="name" required />
+        
             <label for="email">Email</label>
-            <input type="email" id="email" />
-
+            <input type="email" id="email" name="email" required />
+        
             <label for="message">Message</label>
-            <textarea id="message" cols="30" rows="10"></textarea>
-
+            <textarea id="message" name="message" cols="30" rows="10" required></textarea>
+        
+            <!-- Hidden input for "to_name" -->
+            <input type="hidden" id="to_name" name="to_name" value="Prajwal Bhattarai" />
+        
             <button type="submit">Send Message</button>
           </form>
         </div>
+        
+        </div>
       </section>
+      
     </main>
   </body>
 </html>
