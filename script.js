@@ -1,8 +1,9 @@
+// Initialize EmailJS with your Public Key
 (function () {
-  // Initialize EmailJS with your Public Key
   emailjs.init("FS4VLnclagfqrC81p"); // Replace with your EmailJS Public Key
 })();
 
+// Add an event listener for the form submission
 document
   .getElementById("contact-form")
   .addEventListener("submit", function (event) {
@@ -17,17 +18,21 @@ document
       return;
     }
 
+    // Show a loading indicator or disable the button
     const submitButton = this.querySelector("button");
     submitButton.disabled = true; // Disable the button
     submitButton.textContent = "Sending...";
 
+    // EmailJS Service and Template IDs
     const serviceID = "service_u7ieh88"; // Replace with your EmailJS Service ID
     const templateID = "template_ybxdh13"; // Replace with your EmailJS Template ID
 
-    emailjs.sendForm(serviceID, templateID, this)
+    // Send the form data to EmailJS
+    emailjs
+      .sendForm(serviceID, templateID, this)
       .then(() => {
         alert("Message sent successfully!");
-        this.reset(); // Clear the form
+        this.reset(); // Clear the form after submission
         submitButton.disabled = false; // Re-enable the button
         submitButton.textContent = "Send Message";
       })
