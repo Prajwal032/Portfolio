@@ -1,0 +1,52 @@
+@media (max-width: 1024px) {
+    nav {
+      padding: 0 20px;
+    }
+  
+    .hero-section {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .hero-section .headshot img {
+      width: 300px;
+    }
+  }
+  
+  @media (max-width: 740px) {
+    .contact-section .group {
+      flex-direction: column;
+    }
+  
+    .skills-section .cells {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .contact-section {
+      padding: 30px;
+    }
+  
+    .contact-section h2 {
+      font-size: 30px;
+    }
+  
+    .hero-section .text h2 {
+      font-size: 35px;
+    }
+  
+    nav {
+      height: 70px;
+    }
+  
+    nav .left a {
+      font-size: 20px;
+    }
+  
+    nav .right a {
+      font-size: 14px;
+    }
+  }
+  

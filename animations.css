@@ -1,0 +1,27 @@
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .hero-section img,
+  .hero-section .text h2 {
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .hero-section .text h2:hover {
+    animation: bounce 2s infinite;
+  }
+  
