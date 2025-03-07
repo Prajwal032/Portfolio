@@ -118,29 +118,56 @@
       </section>
 
       <section id="contact" class="contact-section">
-        <h2>Contact</h2>
-      
-        <div class="group">
-          <form id="contact-form">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required />
+            <h2>Contact</h2>
         
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required />
-        
-            <label for="message">Message</label>
-            <textarea id="message" name="message" cols="30" rows="10" required></textarea>
-        
-            <!-- Hidden input for "to_name" -->
-            <input type="hidden" id="to_name" name="to_name" value="Prajwal Bhattarai" />
-        
-            <button type="submit">Send Message</button>
-          </form>
-        </div>
-        
-        </div>
-      </section>
-      
+            <div class="group">
+                <form id="contact-form">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required autocomplete="name">
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required autocomplete="email">
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" cols="30" rows="10" required autocomplete="off"></textarea>
+
+                    <input type="hidden" id="to_name" name="to_name" value="Prajwal Bhattarai">
+
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section> 
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            emailjs.init("FS4VLnclagfqrC81p"); // Replace with your Public Key
+
+            document.getElementById("contact-form").addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent form from reloading page
+
+                const submitButton = this.querySelector("button");
+                submitButton.disabled = true; 
+                submitButton.textContent = "Sending..."; 
+
+                const serviceID = "service_u7ieh88";  // Replace with your Service ID
+                const templateID = "template_ybxdh13"; // Replace with your Template ID
+
+                emailjs.sendForm(serviceID, templateID, this)
+                    .then(() => {
+                        alert("Message sent successfully!");
+                        this.reset(); 
+                        submitButton.disabled = false;
+                        submitButton.textContent = "Send Message";
+                    })
+                    .catch((error) => {
+                        console.error("Error:", error);
+                        alert("Failed to send the message. Please try again later.");
+                        submitButton.disabled = false;
+                        submitButton.textContent = "Send Message";
+                    });
+            });
+        });
+    </script>
   </body>
 </html>
